@@ -13,17 +13,47 @@ authController.post('/register', async (req, res) => {
             generateJWT(newUser._id, res);
         }
 
-        res.status(201).send({
+        return res.status(201).send({
             _id: newUser._id,
             fullName: newUser.fullName,
             username: newUser.username,
-            profilePicture: newUser.profilePic,
+            profilePicture: newUser.profilePicture,
         })
     } catch (err) {
         const error = getError(err);
         res.status(400).json({ message: error })
     }
 
+})
+authController.post('/login', async (req, res) => {
+    const { username, password} = req.body;
+    try {
+        const user = await authService.login(username, password)
+
+        if (user) {
+            generateJWT(user._id, res);
+        }
+
+        return res.status(201).send({
+            _id: user._id,
+            fullName: user.fullName,
+            username: user.username,
+            profilePicture: user.profilePicture,
+        })
+
+    } catch (err) {
+        const error = getError(err);
+        res.status(400).json({ message: error })
+    }
+})
+
+authController.post('/logout', (req, res) => {
+    try {
+        authService.logout(res);
+    } catch (err) {
+        const error = getError(err);
+        res.status(400).json({ message: error })
+    }
 })
 
 export default authController;
