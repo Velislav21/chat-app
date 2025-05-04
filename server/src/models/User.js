@@ -1,0 +1,32 @@
+import { Schema, model } from "mongoose";
+
+const userSchema = new Schema({
+    fullName: {
+        type: String,
+        required: [true, 'Full name is required'],
+    },
+    username: {
+        type: String,
+        required: [true, 'Username is required'],
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: [true, 'Password is required'],
+        minlength: 5,
+    },
+    gender: {
+        type: String,
+        required: true,
+        enum: ["male", "female"]
+    },
+    profilePicture: {
+        type: String,
+        default: ""
+    }
+})
+
+
+const User = model('User', userSchema)
+
+export default User;
