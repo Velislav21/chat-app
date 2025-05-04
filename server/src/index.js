@@ -9,10 +9,9 @@ dotenv.config();
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-
+app.use(express.json());
 
 app.use(routes);
-
 
 app.listen(PORT, async () => {
     try {
