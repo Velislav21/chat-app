@@ -1,7 +1,9 @@
-import User from "../models/User.js"
 import bcrypt from "bcryptjs";
-import { PROFILE_PIC_URL, SALT_ROUNDS } from "../constants/constants.js";
+
+import User from "../models/User.js"
 import hashPassword from "../utils/hashPassword.js";
+import generateJWT from "../utils/generateJWT.js";
+import { PROFILE_PIC_URL } from "../constants/constants.js";
 
 const authService = {
     async register(fullName, username, password, confirmPassword, gender) {
@@ -26,7 +28,7 @@ const authService = {
             gender,
             profilePicture: gender === "male" ? maleProfilePic : womenProfilePic
         });
-        return newUser;
+        return generateJWT(newUser);
 
     },
     async login(username, password) {
@@ -41,16 +43,16 @@ const authService = {
         if (!isPasswordCorrect) {
             throw new Error("Invalid password!")
         };
-        return user;
+        return generateJWT(user);
     },
-    logout(res) {
-        try {
-            res.clearCookie("jwt");
-            res.status(200).json({ message: "Logged out successfully!" });
-        } catch (err) {
-            throw new Error("Failed to logout!")
-        }
-    }
+    // logout(res) {
+    //     try {
+    //         res.clearCookie("jwt");
+    //         res.status(200).json({ message: "Logged out successfully!" });
+    //     } catch (err) {
+    //         throw new Error("Failed to logout!")
+    //     }
+    // }
 }
 
 export default authService;

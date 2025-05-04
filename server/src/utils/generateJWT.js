@@ -1,14 +1,25 @@
-import jwt from "jsonwebtoken";
+import jwt from "../jwt.js";
 
-function generateJWT(userId, res) {
-    const token = jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: "10d" });
-    res.cookie("jwt", token, {
-        httpOnly: true,
-        secure: true,
-        maxAge: 10 * 24 * 60 * 60 * 1000,
-           //    d   h    m    s     ms
-        sameSite: "strict",
-    });
+async function generateJWT(user) {
+
+    const payload = {
+        _id: user._id,
+        fullName: user.fullName,
+        username: user.username,
+        profilePicture: user.profilePicture,
+    }
+
+    const header = { expiresIn: '10d' };
+
+    const token = await jwt.sign(payload, process.env.JWT_SECRET, header)
+
+    return {
+        _id: user._id,
+        fullName: user.fullName,
+        username: user.username,
+        profilePicture: user.profilePicture,
+        accessToken: token
+    }
 }
 
 export default generateJWT;

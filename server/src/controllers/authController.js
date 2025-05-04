@@ -1,45 +1,29 @@
 import { Router } from "express";
 import authService from "../services/authService.js";
 import getError from "../utils/getError.js";
-import generateJWT from "../utils/generateJWT.js";
+
 const authController = Router();
 
 authController.post('/register', async (req, res) => {
     const { fullName, username, password, confirmPassword, gender } = req.body;
     try {
-        const newUser = await authService.register(fullName, username, password, confirmPassword, gender)
-
-        if (newUser) {
-            generateJWT(newUser._id, res);
-        }
-
-        return res.status(201).send({
-            _id: newUser._id,
-            fullName: newUser.fullName,
-            username: newUser.username,
-            profilePicture: newUser.profilePicture,
-        })
+        
+        const newUser = await authService.register(fullName, username, password, confirmPassword, gender);
+        return res.status(201).json(newUser);
+        
     } catch (err) {
         const error = getError(err);
-        res.status(400).json({ message: error })
+        res.status(400).json({ message: error });
     }
 
 })
 authController.post('/login', async (req, res) => {
     const { username, password} = req.body;
+
     try {
-        const user = await authService.login(username, password)
-
-        if (user) {
-            generateJWT(user._id, res);
-        }
-
-        return res.status(201).send({
-            _id: user._id,
-            fullName: user.fullName,
-            username: user.username,
-            profilePicture: user.profilePicture,
-        })
+        
+        const user = await authService.login(username, password);
+        return res.status(200).json(user);
 
     } catch (err) {
         const error = getError(err);
