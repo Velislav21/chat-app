@@ -4,8 +4,18 @@ import getError from "../utils/getError.js";
 
 const authController = Router();
 
-authController.get('/', (req, res) => {
-    res.status(200).json({ message: "Hello World" })
+authController.get('/users', async (req, res) => {
+    console.log('called')
+    const loggedUserId = req.user._id;
+
+    try {
+        const users = await authService.getUsers(loggedUserId);
+        return res.status(200).json(users);
+    } catch (err) {
+        const error = getError(err);
+        res.status(400).json({ message: error })
+    }
+    
 })
 
 authController.post('/register', async (req, res) => {

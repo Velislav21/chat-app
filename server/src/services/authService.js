@@ -45,14 +45,10 @@ const authService = {
         };
         return generateJWT(user);
     },
-    // logout(res) {
-    //     try {
-    //         res.clearCookie("jwt");
-    //         res.status(200).json({ message: "Logged out successfully!" });
-    //     } catch (err) {
-    //         throw new Error("Failed to logout!")
-    //     }
-    // }
+    async getUsers(loggedUserId) {
+        const users = await User.find({ _id: { $ne: loggedUserId } }).select("-password"); // excluding the logged in user and their passwords
+        return users;
+    }
 }
 
 export default authService;
