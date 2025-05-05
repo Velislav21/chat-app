@@ -4,6 +4,10 @@ import getError from "../utils/getError.js";
 
 const authController = Router();
 
+authController.get('/', (req, res) => {
+    res.status(200).json({ message: "Hello World" })
+})
+
 authController.post('/register', async (req, res) => {
     const { fullName, username, password, confirmPassword, gender } = req.body;
     try {
