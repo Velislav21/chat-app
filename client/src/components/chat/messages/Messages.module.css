@@ -1,0 +1,5 @@
+.messages-container {   
+    flex-grow: 2.5;
+    overflow: auto;
+    max-height: 30em;
+}

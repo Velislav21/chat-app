@@ -1,6 +1,6 @@
-import styles from './ConversationItem.module.css'
+import styles from './Conversation.module.css'
 
-export default function ConversationItem() {
+export default function Conversation() {
   return (
     <div className={styles["conversation-item"]}>
       <div className={styles["avatar-wrapper"]}>

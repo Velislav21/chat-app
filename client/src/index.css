@@ -54,3 +54,16 @@ a {
 li {
   list-style: none;
 }
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+::-webkit-scrollbar-track {
+  background: #a9a9a9;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+  background: #575757;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
