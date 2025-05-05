@@ -20,12 +20,16 @@ button {
   font: inherit;
 }
 body {
-  /* background: #211c26; */
-  background: #f5f5f5;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 div#root {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-height: 100dvh;
 }
 h1,

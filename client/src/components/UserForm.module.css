@@ -32,7 +32,11 @@
     flex-direction: column;
     gap: 0.5em;
 }
-
+.form-group-gender {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7em;
+}
 .form-group label {
     color: #666;
     font-size: 0.9em;

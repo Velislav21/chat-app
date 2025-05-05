@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router'
 import Login from './components/login/Login'
 import Register from './components/register/Register'
-import ChatLayout from './components/ChatLayout'
+import ChatLayout from './components/chat/ChatLayout'
 
 function App() {
   return (

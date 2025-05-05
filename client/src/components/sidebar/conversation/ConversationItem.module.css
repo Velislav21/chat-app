@@ -1,0 +1,41 @@
+.conversation-item {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    border-bottom: 1px solid #494949;
+    padding: 0.5em;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.conversation-item img {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+
+.conversation-item-content {
+    background: #23272f;
+    color: #fff;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+}
+
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.online-status {
+    position: absolute;
+    top: 0.1em;
+    right: -0.2em;
+    width: 0.9em;
+    height: 0.9em;
+    background: #2ecc40;
+    border: 2px solid #23272f;
+    border-radius: 50%;
+    z-index: 2;
+}

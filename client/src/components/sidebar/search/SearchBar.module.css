@@ -1,0 +1,26 @@
+.search-form {
+    display: flex;
+    gap: 1em;
+    padding: 0.5em;
+    border-bottom: 1px solid rgb(65, 65, 65);
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    color: rgb(118, 118, 118);
+    border: none;
+    background: none;
+    cursor: pointer;
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.search-input {
+    color: #fff;
+    border: 1px solid rgb(118, 118, 118);
+    background: none;
+    border-radius: 1em;
+    padding: 0.7em;
+}

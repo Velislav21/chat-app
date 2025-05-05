@@ -12,7 +12,7 @@ function Register() {
                         <label htmlFor="email">Fullname</label>
                         <input
                             type="text"
-                            id="fullname"
+                            name="fullname"
                             className={styles["form-input"]}
                             placeholder="Enter your fullname"
                         />
@@ -21,7 +21,7 @@ function Register() {
                         <label htmlFor="email">Username</label>
                         <input
                             type="text"
-                            id="username"
+                            name="username"
                             className={styles["form-input"]}
                             placeholder="Enter your username"
                         />
@@ -30,7 +30,7 @@ function Register() {
                         <label htmlFor="password">Password</label>
                         <input
                             type="password"
-                            id="password"
+                            name="password"
                             className={styles["form-input"]}
                             placeholder="Enter your password"
                         />
@@ -39,14 +39,30 @@ function Register() {
                         <label htmlFor="password">Confirm password</label>
                         <input
                             type="password"
-                            id="confirmPassword"
+                            name="confirmPassword"
+                            className={styles["form-input"]}
+                            placeholder="Confirm password"
+                        />
+                    </div>
+                    <div className={styles["form-group-gender"]}>
+                        <label htmlFor="password">Male</label>
+                        <input
+                            type="radio"
+                            name="male"
+                            className={styles["form-input"]}
+                            placeholder="Confirm password"
+                        />
+                        <label htmlFor="password">Female</label>
+                        <input
+                            type="radio"
+                            name="female"
                             className={styles["form-input"]}
                             placeholder="Confirm password"
                         />
                     </div>
                     <button type="submit" className={styles["form-button"]}>Register</button>
                     <p className={styles["link"]}>
-                        Already have an account? <Link to="/login">Login</Link>
+                        Already have an account? <Link to="/">Login</Link>
                     </p>
                 </form>
             </div>
