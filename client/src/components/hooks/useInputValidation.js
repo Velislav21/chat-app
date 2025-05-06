@@ -19,7 +19,7 @@ export default function useInputValidation(schema) {
                     errors[currentError.path].push(currentError.message);
                 })
             setValidationErrors(errors);
-            setTimeout(() => setValidationErrors({}), 10000)
+            setTimeout(() => setValidationErrors({}), 6000)
 
             return null;
         }
