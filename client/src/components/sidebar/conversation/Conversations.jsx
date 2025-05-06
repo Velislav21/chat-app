@@ -21,6 +21,16 @@ export default function Conversations() {
         <Conversation />
         <Conversation />
         <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
       </div>
     </>
   )

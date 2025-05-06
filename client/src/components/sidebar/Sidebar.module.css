@@ -1,4 +1,7 @@
 .sidebar-container {
-    flex-grow: 0.5;
-    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    justify-content: space-between;
+    height: 100%;
 }

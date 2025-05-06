@@ -18,17 +18,17 @@ export default function Message() {
             </div>
 
             <div className={`${styles["messageRow"]} ${styles["senderRow"]}`}>
+                <img
+                    className={styles["avatar"]}
+                    alt="Anakin"
+                    src="https://avatar.iran.liara.run/public/girl?username=vilio2"
+                />
                 <div>
                     <div className={styles["header"]}>
                         Anakin <span className={styles["time"]}>12:46</span>
                     </div>
                     <div className={`${styles["message"]} ${styles["sender"]}`}>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
                 </div>
-                <img
-                    className={styles["avatar"]}
-                    alt="Anakin"
-                    src="https://avatar.iran.liara.run/public/girl?username=vilio2"
-                />
             </div>
         </>
     )

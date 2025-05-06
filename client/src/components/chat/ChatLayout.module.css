@@ -1,12 +1,12 @@
 .chat-container {
-    padding: 0.5em;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     margin: 0 auto;
     background: #211c26;
-    width: 55em;
+    width: 60em;
+    min-height: 40em;
     border-radius: 0.5em;
     color: #fff;
 }

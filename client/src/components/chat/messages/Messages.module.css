@@ -1,5 +1,29 @@
-.messages-container {   
-    flex-grow: 2.5;
+.chat-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-height: 40em;
+}
+
+.chat-container h1 {
+    width: auto;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    background-color: #393939;
+    padding: 0.5em 1em;
+    border-top-right-radius: 0.5em;
+}
+.chat-container h1 > span {
+    font-weight: 400;
+    font-size: 0.8em;
+    color: #b6b6b6;
+}
+
+.messages-container {
+    flex-grow: 1;
+    min-height: 0;
     overflow: auto;
-    max-height: 30em;
+    padding-bottom: 3em;
 }

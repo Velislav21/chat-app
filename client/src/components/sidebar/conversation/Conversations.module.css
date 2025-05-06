@@ -1,5 +1,5 @@
 .conversation-container {
-    margin-top: 1em;
+    margin: 1em 0;
     max-height: 30em;
     overflow: auto;
 }
