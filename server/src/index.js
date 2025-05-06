@@ -9,10 +9,10 @@ dotenv.config();
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-// app.use(cors({
-//     origin: "*",
-//     credentials: true
-// }));
+app.use(cors({
+    origin: "*",
+    credentials: true
+}));
 app.use(express.json());
 
 app.use(authMiddleware);
