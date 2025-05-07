@@ -6,24 +6,28 @@ import ChatLayout from './components/chat/ChatLayout'
 import AuthorizedRoutes from './components/route-guards/AuthorizedRoutes'
 import UnAuthorizedRoutes from './components/route-guards/UnAuthorizedRoutes'
 import { AuthContextProvider } from './contexts/AuthContext'
+import { ConversationContextProvider } from './contexts/ConversationContext'
 import { Toaster } from 'react-hot-toast'
-
 export default function App() {
     return (
         <AuthContextProvider>
-            <Routes>
+            <ConversationContextProvider>
 
-                <Route element={<UnAuthorizedRoutes />}>
-                    <Route path="/login" Component={Login} />
-                    <Route path="/register" Component={Register} />
-                </Route>
+                <Routes>
 
-                <Route element={<AuthorizedRoutes />}>
-                    <Route path="/" Component={ChatLayout} />
-                </Route>
+                    <Route element={<UnAuthorizedRoutes />}>
+                        <Route path="/login" Component={Login} />
+                        <Route path="/register" Component={Register} />
+                    </Route>
 
-            </Routes>
-            <Toaster />
-        </AuthContextProvider>
+                    <Route element={<AuthorizedRoutes />}>
+                        <Route path="/" Component={ChatLayout} />
+                    </Route>
+
+                </Routes>
+
+                <Toaster />
+            </ConversationContextProvider>
+        </AuthContextProvider >
     )
 }
