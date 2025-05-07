@@ -1,8 +1,8 @@
 import { Link } from 'react-router'
 import styles from '../UserForm.module.css'
-import useLogin from '../hooks/useLogin'
-import useForm from '../hooks/useForm'
-import loginSchema from '../schemas/loginSchema'
+import useLogin from '../../hooks/useLogin'
+import useForm from '../../hooks/useForm'
+import loginSchema from '../../schemas/loginSchema'
 
 const initialFormState = {
     username: '',

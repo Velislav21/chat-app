@@ -1,12 +1,9 @@
-import { useEffect } from 'react'
-
 import { Link } from 'react-router'
 import styles from '../UserForm.module.css'
 
-import registerSchema from '../schemas/registerSchema'
-import useRegister from '../hooks/useRegister'
-import useForm from '../hooks/useForm'
-import { toast } from 'react-hot-toast'
+import registerSchema from '../../schemas/registerSchema'
+import useRegister from '../../hooks/useRegister'
+import useForm from '../../hooks/useForm'
 const initialFormState = {
     fullname: '',
     username: '',
