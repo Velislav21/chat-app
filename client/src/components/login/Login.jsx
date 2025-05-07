@@ -3,6 +3,7 @@ import styles from '../UserForm.module.css'
 import useLogin from '../../hooks/useLogin'
 import useForm from '../../hooks/useForm'
 import loginSchema from '../../schemas/loginSchema'
+import Spinner from '../spinner/Spinner'
 
 const initialFormState = {
     username: '',
@@ -11,7 +12,6 @@ const initialFormState = {
 
 function Login() {
     const { mutate: register, isPending } = useLogin();
-
     const {
         values,
         handleInputChange,
@@ -47,7 +47,15 @@ function Login() {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <button type="submit" className={styles["form-button"]}>Login</button>
+
+                    <button
+                        disabled={isPending}
+                        type="submit"
+                        className={styles["form-button"]}
+                    >
+                        {isPending ? <Spinner /> : "Login"}
+                    </button>
+
                     <p className={styles["link"]}>
                         Don't have an account? <Link to="/register">Register</Link>
                     </p>

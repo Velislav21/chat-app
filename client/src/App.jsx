@@ -14,14 +14,14 @@ export default function App() {
             <Routes>
 
                 <Route element={<UnAuthorizedRoutes />}>
-                    <Route path="/" Component={Login} />
+                    <Route path="/login" Component={Login} />
                     <Route path="/register" Component={Register} />
                 </Route>
 
                 <Route element={<AuthorizedRoutes />}>
-                    <Route path="/chat" Component={ChatLayout} />
+                    <Route path="/" Component={ChatLayout} />
                 </Route>
-                
+
             </Routes>
             <Toaster />
         </AuthContextProvider>

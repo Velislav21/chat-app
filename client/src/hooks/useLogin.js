@@ -19,7 +19,7 @@ export default function useLogin() {
         mutationFn: login,
         onSuccess: (userData) => {
             dispatch({ type: "LOGIN", payload: userData });
-            navigate("/chat");
+            navigate("/");
         },
         onError: (error) => toast.error(error.response.data.message)
     })

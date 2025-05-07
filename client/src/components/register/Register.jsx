@@ -4,6 +4,7 @@ import styles from '../UserForm.module.css'
 import registerSchema from '../../schemas/registerSchema'
 import useRegister from '../../hooks/useRegister'
 import useForm from '../../hooks/useForm'
+import Spinner from '../spinner/Spinner'
 const initialFormState = {
     fullname: '',
     username: '',
@@ -73,7 +74,7 @@ export default function Register() {
                             className={styles["form-input"]}
                             placeholder="Confirm password"
                             required
-                            />
+                        />
                     </div>
                     <div className={styles["form-group-gender"]}>
                         <label htmlFor="gender">Male</label>
@@ -90,14 +91,20 @@ export default function Register() {
                         <input
                             type="radio"
                             name="gender"
-                            value="female"  
+                            value="female"
                             checked={values.gender === 'female'}
                             onChange={handleInputChange}
                             className={styles["form-input"]}
                             placeholder="Confirm password"
                         />
                     </div>
-                    <button type="submit" className={styles["form-button"]}>Register</button>
+                    <button
+                        type="submit"
+                        className={styles["form-button"]}
+                        disabled={isPending}
+                    >
+                        {isPending ? <Spinner /> : "Register"}
+                    </button>
                     <p className={styles["link"]}>
                         Already have an account? <Link to="/">Login</Link>
                     </p>

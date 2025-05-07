@@ -5,5 +5,5 @@ import useAuthContext from "../../hooks/useAuthContext";
 export default function UnAuthorizedRoutes() {
 
     const { user } = useAuthContext(); 
-    return user ? <Navigate to={"/chat"} /> : <Outlet />
+    return user ? <Navigate to={"/"} /> : <Outlet />
 }

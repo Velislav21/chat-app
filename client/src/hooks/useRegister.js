@@ -19,7 +19,7 @@ export default function useRegister() {
         mutationFn: register,
         onSuccess: (userData) => {
             dispatch({ type: "LOGIN", payload: userData });
-            navigate("/chat");
+            navigate("/");
         },
         onError: (error) => toast.error(error.response.data.message)
     })

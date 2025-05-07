@@ -63,6 +63,11 @@
     font-size: 1rem;
     cursor: pointer;
     margin-top: 1rem;
+
+    &:disabled {
+        background-color: #0056b3;
+        cursor: not-allowed;
+    }
 }
 
 .form-button:hover {
