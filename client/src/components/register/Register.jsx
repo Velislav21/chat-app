@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
+
 import { Link } from 'react-router'
 import styles from '../UserForm.module.css'
 
 import registerSchema from '../schemas/registerSchema'
-import useInputValidation from '../hooks/useInputValidation'
 import useRegister from '../hooks/useRegister'
-
+import useForm from '../hooks/useForm'
+import { toast } from 'react-hot-toast'
 const initialFormState = {
     fullname: '',
     username: '',
@@ -15,30 +16,13 @@ const initialFormState = {
 }
 
 export default function Register() {
-    const { validationErrors, validationFn } = useInputValidation(registerSchema);
+    const { mutate: register, isPending } = useRegister();
+
     const {
-        mutate: register,
-        data,
-        isPending,
-        error
-    } = useRegister();
-
-    const [values, setValues] = useState(initialFormState)
-
-    function handleInputChange(e) {
-        const { name, value } = e.target
-        setValues(prev => ({ ...prev, [name]: value }))
-    }
-
-    async function handleSubmit(e) {
-        e.preventDefault()
-        const valid = await validationFn(values)
-        console.log(valid)
-        console.log(values)
-        if (valid) {
-            // register(values)
-        }
-    }
+        values,
+        handleInputChange,
+        handleSubmit
+    } = useForm(initialFormState, register, registerSchema)
 
     return (
         <div className={styles["container"]}>
@@ -56,6 +40,7 @@ export default function Register() {
                             onChange={handleInputChange}
                             className={styles["form-input"]}
                             placeholder="Enter your fullname"
+                            required
                         />
                     </div>
                     <div className={styles["form-group"]}>
@@ -67,6 +52,7 @@ export default function Register() {
                             onChange={handleInputChange}
                             className={styles["form-input"]}
                             placeholder="Enter your username"
+                            required
                         />
                     </div>
                     <div className={styles["form-group"]}>
@@ -89,7 +75,8 @@ export default function Register() {
                             onChange={handleInputChange}
                             className={styles["form-input"]}
                             placeholder="Confirm password"
-                        />
+                            required
+                            />
                     </div>
                     <div className={styles["form-group-gender"]}>
                         <label htmlFor="gender">Male</label>
@@ -106,7 +93,7 @@ export default function Register() {
                         <input
                             type="radio"
                             name="gender"
-                            value="female"
+                            value="female"  
                             checked={values.gender === 'female'}
                             onChange={handleInputChange}
                             className={styles["form-input"]}
