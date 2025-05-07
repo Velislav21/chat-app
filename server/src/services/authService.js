@@ -6,7 +6,7 @@ import generateJWT from "../utils/generateJWT.js";
 import { PROFILE_PIC_URL } from "../constants/constants.js";
 
 const authService = {
-    async register(fullName, username, password, confirmPassword, gender) {
+    async register(fullname, username, password, confirmPassword, gender) {
         if (password !== confirmPassword) {
             throw new Error("Passwords must match!")
         };
@@ -22,7 +22,7 @@ const authService = {
         const womenProfilePic = `${PROFILE_PIC_URL}/public/girl?username=${username}`;
 
         const newUser = await User.create({
-            fullName,
+            fullname,
             username,
             password: hashedPassword,
             gender,

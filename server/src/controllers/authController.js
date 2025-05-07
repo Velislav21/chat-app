@@ -19,10 +19,10 @@ authController.get('/users', async (req, res) => {
 })
 
 authController.post('/register', async (req, res) => {
-    const { fullName, username, password, confirmPassword, gender } = req.body;
+    const { fullname, username, password, confirmPassword, gender } = req.body;
     try {
         
-        const newUser = await authService.register(fullName, username, password, confirmPassword, gender);
+        const newUser = await authService.register(fullname, username, password, confirmPassword, gender);
         return res.status(201).json(newUser);
         
     } catch (err) {

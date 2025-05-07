@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
-    fullName: {
+    fullname: {
         type: String,
         required: [true, 'Full name is required'],
     },

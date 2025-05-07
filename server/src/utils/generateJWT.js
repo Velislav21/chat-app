@@ -4,7 +4,7 @@ async function generateJWT(user) {
 
     const payload = {
         _id: user._id,
-        fullName: user.fullName,
+        fullname: user.fullname,
         username: user.username,
         profilePicture: user.profilePicture,
     }
@@ -15,7 +15,7 @@ async function generateJWT(user) {
 
     return {
         _id: user._id,
-        fullName: user.fullName,
+        fullname: user.fullname,
         username: user.username,
         profilePicture: user.profilePicture,
         accessToken: token
