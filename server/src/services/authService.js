@@ -3,7 +3,6 @@ import bcrypt from "bcryptjs";
 import User from "../models/User.js"
 import hashPassword from "../utils/hashPassword.js";
 import generateJWT from "../utils/generateJWT.js";
-import { PROFILE_PIC_URL } from "../constants/constants.js";
 
 const authService = {
     async register(fullname, username, password, confirmPassword, gender) {
@@ -17,23 +16,21 @@ const authService = {
         }
 
         const hashedPassword = await hashPassword(password);
-
-        const maleProfilePic = `${PROFILE_PIC_URL}/public/boy?username=${username}`;
-        const womenProfilePic = `${PROFILE_PIC_URL}/public/girl?username=${username}`;
+        const profilePicUrl = `https://api.dicebear.com/9.x/adventurer/svg?seed=${username}&size=64&backgroundType=gradientLinear&earringsProbability=25&backgroundColor=ffdfbf,ffd5dc`
 
         const newUser = await User.create({
             fullname,
             username,
             password: hashedPassword,
             gender,
-            profilePicture: gender === "male" ? maleProfilePic : womenProfilePic
+            profilePicture: profilePicUrl
         });
         return generateJWT(newUser);
 
     },
     async login(username, password) {
         const user = await User.findOne({ username });
-
+        console.log(username)
         if (!user) {
             throw new Error("User do not exists!")
         }
