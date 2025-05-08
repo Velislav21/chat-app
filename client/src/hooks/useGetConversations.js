@@ -5,7 +5,7 @@ import axiosClient from "../axiosInstance";
 export default function useGetConversations() {
     const { user } = useAuthContext();
     return useQuery({
-        queryKey: ["conversations"],
+        queryKey: ["conversations", user._id],
         queryFn: async () => {
             const response = await axiosClient.get("/auth/users", {
                 headers: {

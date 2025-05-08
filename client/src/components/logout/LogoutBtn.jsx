@@ -10,6 +10,7 @@ export default function LogoutBtn() {
     const { setCurrentConversation } = useConversationContext();
     return (
         <button
+            title="Logout"
             className={styles["logout-btn"]}
             onClick={() => {
                 dispatch({ type: "LOGOUT" });

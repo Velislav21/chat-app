@@ -25,7 +25,7 @@ export default function Conversations() {
                             <Conversation
                                 key={conversation._id}
                                 conversation={conversation}
-                                />
+                            />
                         ))}
             </div>
         </>

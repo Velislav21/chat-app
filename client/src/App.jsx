@@ -6,12 +6,10 @@ import ChatLayout from './components/chat/ChatLayout'
 import AuthorizedRoutes from './components/route-guards/AuthorizedRoutes'
 import UnAuthorizedRoutes from './components/route-guards/UnAuthorizedRoutes'
 import { AuthContextProvider } from './contexts/AuthContext'
-import { ConversationContextProvider } from './contexts/ConversationContext'
 import { Toaster } from 'react-hot-toast'
 export default function App() {
     return (
         <AuthContextProvider>
-            <ConversationContextProvider>
 
                 <Routes>
 
@@ -26,8 +24,7 @@ export default function App() {
 
                 </Routes>
 
-                <Toaster />
-            </ConversationContextProvider>
+            <Toaster />
         </AuthContextProvider >
     )
 }

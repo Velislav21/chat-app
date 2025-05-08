@@ -5,9 +5,6 @@ export default function Message({ message }) {
 
     const { user } = useAuthContext();
     const { currentConversation } = useConversationContext();
-    console.log(currentConversation);
-    console.log(user);
-    console.log(message);
     const isSender = message.senderId === user._id;
 
     return (
