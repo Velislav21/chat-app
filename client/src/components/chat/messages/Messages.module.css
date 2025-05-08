@@ -28,6 +28,7 @@
     flex-direction: column;
     flex-grow: 1;
     max-height: 40em;
+    border-left: 1px solid #494949;
 }
 
 .chat-container h1 > span {
