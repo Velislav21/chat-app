@@ -6,7 +6,6 @@ export default function Conversation({ conversation }) {
 
     const isCurrentConversation = currentConversation?._id === conversation._id;
 
-    console.log(isCurrentConversation)
     return (
         <div
             className={isCurrentConversation ?
