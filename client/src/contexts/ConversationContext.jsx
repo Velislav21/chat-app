@@ -5,24 +5,18 @@ export const ConversationContext = createContext({
     conversations: [],
     isLoading: false,
     currentConversation: null,
-    setCurrentConversation: () => {},
-    messages: [],
-    setMessages: () => {}
+    setCurrentConversation: () => {}
 });
 
 export function ConversationContextProvider({ children }) {
-
     const { data: conversations, isLoading } = useGetConversations();
     const [currentConversation, setCurrentConversation] = useState(null);
-    const [messages, setMessages] = useState([]);
 
     const contextValue = {
         conversations,
         isLoading,
         currentConversation,
-        setCurrentConversation,
-        messages,
-        setMessages
+        setCurrentConversation
     }
 
     return (

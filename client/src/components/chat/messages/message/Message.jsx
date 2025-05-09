@@ -19,7 +19,7 @@ export default function Message({ message }) {
                         alt="Obi-Wan"
                         src={isSender ? user.profilePicture : currentConversation.profilePicture}
                     />
-                    <div className={`${styles["message"]} ${styles["receiver"]}`}>{message.messageContent}</div>
+                    <div className={`${styles["message"]} ${styles[`${isSender ? "sender" : "receiver"}`]}`}>{message.messageContent}</div>
                 </div>
             </div>
         </>

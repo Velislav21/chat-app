@@ -3,13 +3,11 @@ import styles from './Messages.module.css'
 import Message from './message/Message'
 import MessageInput from './message-input/MessageInput'
 import useGetMessages from '../../../hooks/useGetMessages'
-import useConversationContext from '../../../hooks/useConversationContext'
 import SkeletonLoader from '../../skeleton-loader/SkeletonLoader'
 import useAuthContext from '../../../hooks/useAuthContext'
 export default function Messages({ currentConversation }) {
 
     const { user } = useAuthContext();
-    // const { messages: messagesFromContext } = useConversationContext();
     const { data: messages, isFetching } = useGetMessages();
     // console.log(messagesFromContext);
     return (

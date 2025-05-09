@@ -63,12 +63,12 @@
 
 .senderRow .time {
   text-align: right;
-  margin-right: 4.5em;
+  margin-right: 6.5em;
 }
 
 .receiverRow .time {
   text-align: left;
-  margin-left: 4.5em;
+  margin-left: 6.5em;
 }
 
 .message-container {

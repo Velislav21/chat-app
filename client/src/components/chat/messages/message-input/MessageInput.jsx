@@ -3,13 +3,12 @@ import { useState } from 'react';
 import styles from './MessageInput.module.css'
 import { Send } from 'lucide-react'
 import useSendMessage from '../../../../hooks/useSendMessage';
-import Spinner from '../../../../components/spinner/Spinner';
 
 export default function MessageInput() {
 
     const [message, setMessage] = useState('');
     const { sendMessage, isLoading } = useSendMessage();
-    
+
     function handleSubmit(e) {
         e.preventDefault();
 
@@ -35,12 +34,19 @@ export default function MessageInput() {
                 value={message}
                 onChange={handleInputChange}
             />
-            <button
-                type="submit"
-                disabled={isLoading}
-            >
-                {isLoading ? <Spinner /> : <Send />}
-            </button>
+            <SendButton isLoading={isLoading} />
         </form>
+    )
+}
+
+function SendButton({ isLoading }) {
+    return (
+        <button
+            type="submit"
+            disabled={true}
+            className={styles["send-button"]}
+        >
+            <Send />
+        </button>
     )
 }
