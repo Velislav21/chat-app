@@ -1,3 +1,5 @@
+import { useRef, useEffect } from 'react';
+
 import styles from './Messages.module.css'
 
 import Message from './message/Message'
@@ -9,7 +11,16 @@ export default function Messages({ currentConversation }) {
 
     const { user } = useAuthContext();
     const { data: messages, isFetching } = useGetMessages();
-    // console.log(messagesFromContext);
+    const lastMessageRef = useRef(null);
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (!isFetching && messages.length > 0) {
+                lastMessageRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100)
+    }, [messages, isFetching]);
+
     return (
         <>
             {isFetching &&
@@ -28,11 +39,16 @@ export default function Messages({ currentConversation }) {
                         <span> From:</span> {user.fullname}</h1>
                     {/* !TODO  remove the from span*/}
                     <div className={styles["messages-container"]}>
-
-                        {messages.map((message) => (
-                            <Message key={message._id} message={message} />
+                        {messages.map((message, index) => (
+                            <div 
+                                ref={index === messages.length - 1 ? lastMessageRef : null} 
+                                key={message._id}
+                            >
+                                <Message
+                                    message={message}
+                                />
+                            </div>
                         ))}
-
                     </div>
                     <MessageInput />
                 </div>
