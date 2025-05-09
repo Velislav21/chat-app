@@ -7,6 +7,5 @@ export default function dateParser(date) {
         timeZone: 'Europe/Sofia'
     }
     const parsedDate = new Date(date).toLocaleDateString('en-GB', options);
-    console.log(parsedDate);
     return parsedDate;
 }
