@@ -1,6 +1,8 @@
 import styles from './Message.module.css'
 import useAuthContext from '../../../../hooks/useAuthContext'
 import useConversationContext from '../../../../hooks/useConversationContext'
+import dateParser from '../../../../utils/dateParser'
+
 export default function Message({ message }) {
 
     const { user } = useAuthContext();
@@ -10,7 +12,7 @@ export default function Message({ message }) {
     return (
         <>
             <div className={`${styles["messageRow"]} ${isSender ? styles["senderRow"] : styles["receiverRow"]}`}>
-                <span className={styles["time"]}>{message.createdAt}</span>
+                <span className={styles["time"]}>{dateParser(message.createdAt)}</span>
                 <div className={styles["message-container"]}>
                     <img
                         className={styles["avatar"]}

@@ -9,7 +9,7 @@ export default function MessageInput() {
 
     const [message, setMessage] = useState('');
     const { sendMessage, isLoading } = useSendMessage();
-
+    
     function handleSubmit(e) {
         e.preventDefault();
 
