@@ -43,6 +43,7 @@
   margin: 0 1em;
   object-fit: cover;
   border: 2px solid #222;
+  align-self: flex-end
 }
 
 .header {

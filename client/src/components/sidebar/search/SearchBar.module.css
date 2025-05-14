@@ -1,7 +1,7 @@
 .search-form {
     display: flex;
     gap: 1em;
-    padding: 0.5em;
+    padding: 0.5em 1em;
     border-bottom: 1px solid rgb(65, 65, 65);
 }
 
