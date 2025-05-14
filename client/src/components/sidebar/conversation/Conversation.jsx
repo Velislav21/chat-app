@@ -23,7 +23,7 @@ export default function Conversation({ conversation }) {
                 {/* //! Hide online status when needed*/}
             </div>
             <div className={styles["conversation-item-content"]}>
-                {conversation.fullname}
+                {`${conversation.fullname} - ${conversation.username}`}
             </div>
         </div>
     )

@@ -21,11 +21,11 @@ messageController.post('/send/:id', async (req, res) => {
 })
 
 messageController.get('/:id', async (req, res) => {
+    const senderId = req.user._id;
+    const { id: userToChatId } = req.params;
     try {
-        const { id: userToChatId } = req.params;
-        const senderId = req.user._id;
-        // console.log("the id of the user to chat with", userToChatId)
-        // console.log("the id of the user who sends the request", senderId)
+        console.log("the id of the user to chat with", userToChatId)
+        console.log("the id of the user who sends the request", senderId)
         const messages = await messageService.getMessages(senderId, userToChatId);
         return res.status(200).json(messages);
     } catch (err) {
