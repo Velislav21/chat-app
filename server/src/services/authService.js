@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import User from "../models/User.js"
 import hashPassword from "../utils/hashPassword.js";
 import generateJWT from "../utils/generateJWT.js";
+import { io } from "../socketio.js";
 
 const authService = {
     async register(fullname, username, password, confirmPassword, gender) {
@@ -25,6 +26,7 @@ const authService = {
             gender,
             profilePicture: profilePicUrl
         });
+        io.emit("newUser", newUser)
         return generateJWT(newUser);
 
     },

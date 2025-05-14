@@ -3,6 +3,7 @@ import Conversation from './Conversation'
 import SkeletonLoader from '../../skeleton-loader/SkeletonLoader'
 
 import useConversationContext from '../../../hooks/useConversationContext'
+import useNewRegisteredUser from '../../../hooks/useNewRegisteredUser'
 
 export default function Conversations() {
 
@@ -10,6 +11,8 @@ export default function Conversations() {
         conversations,
         isLoading,
     } = useConversationContext();
+
+    useNewRegisteredUser();
 
     return (
         <>

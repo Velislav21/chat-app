@@ -13,9 +13,9 @@ export default function useListenForMessage(messages, currentConversation) {
 
         socket.on("newMessage", (newMessage) => {
 
-            queryClient.setQueryData(['messages', currentConversation._id], (oldData) => {
-                if (!oldData) return [newMessage];
-                return [...oldData, newMessage];
+            queryClient.setQueryData(['messages', currentConversation._id], (oldMessages) => {
+                if (!oldMessages) return [newMessage];
+                return [...oldMessages, newMessage];
             });
             console.log('works')
         });
