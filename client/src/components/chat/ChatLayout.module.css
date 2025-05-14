@@ -9,4 +9,5 @@
     min-height: 40em;
     border-radius: 0.5em;
     color: #fff;
+    box-shadow: 0.2em 0.5em 2em rgba(0,0,0, 0.5);
 }

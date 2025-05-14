@@ -5,11 +5,16 @@ import Register from './components/register/Register'
 import ChatLayout from './components/chat/ChatLayout'
 import AuthorizedRoutes from './components/route-guards/AuthorizedRoutes'
 import UnAuthorizedRoutes from './components/route-guards/UnAuthorizedRoutes'
+
 import { AuthContextProvider } from './contexts/AuthContext'
+import { SocketContextProvider } from './contexts/SocketContext'
+
 import { Toaster } from 'react-hot-toast'
+
 export default function App() {
     return (
         <AuthContextProvider>
+            <SocketContextProvider>
 
                 <Routes>
 
@@ -24,7 +29,8 @@ export default function App() {
 
                 </Routes>
 
-            <Toaster />
+                <Toaster />
+            </SocketContextProvider>
         </AuthContextProvider >
     )
 }
