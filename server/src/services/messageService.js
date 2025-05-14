@@ -1,5 +1,6 @@
 import Message from "../models/Message.js";
 import Conversation from "../models/Conversation.js";
+import { getReceiverSocketId, io } from "../socketio.js";
 
 const messageService = {
     async sendMessage(senderId, receiverId, messageContent) {
@@ -22,6 +23,11 @@ const messageService = {
             conversation.messages.push(newMessage._id);
             await conversation.save();
         };
+
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if (receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
 
         return newMessage;
     },

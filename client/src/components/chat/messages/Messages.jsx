@@ -7,10 +7,13 @@ import MessageInput from './message-input/MessageInput'
 import useGetMessages from '../../../hooks/useGetMessages'
 import SkeletonLoader from '../../skeleton-loader/SkeletonLoader'
 import useAuthContext from '../../../hooks/useAuthContext'
+import useListenForMessage from '../../../hooks/useListenForMessage';
+
 export default function Messages({ currentConversation }) {
 
     const { user } = useAuthContext();
     const { data: messages, isFetching } = useGetMessages();
+    useListenForMessage(messages, currentConversation);
     const lastMessageRef = useRef(null);
 
     useEffect(() => {
@@ -40,8 +43,8 @@ export default function Messages({ currentConversation }) {
                     {/* !TODO  remove the from span*/}
                     <div className={styles["messages-container"]}>
                         {messages.map((message, index) => (
-                            <div 
-                                ref={index === messages.length - 1 ? lastMessageRef : null} 
+                            <div
+                                ref={index === messages.length - 1 ? lastMessageRef : null}
                                 key={message._id}
                             >
                                 <Message
