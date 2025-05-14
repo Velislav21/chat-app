@@ -1,10 +1,17 @@
 import styles from './Conversation.module.css'
+
 import useConversationContext from '../../../hooks/useConversationContext'
+import useSocketContext from '../../../hooks/useSocketContext';
+
 export default function Conversation({ conversation }) {
 
     const { currentConversation, setCurrentConversation } = useConversationContext();
 
     const isCurrentConversation = currentConversation?._id === conversation._id;
+
+    const { onlineUsers } = useSocketContext();
+    
+    const isOnline = onlineUsers.includes(conversation._id); // the received conversation object from the mapping function of the parent component
 
     return (
         <div
@@ -19,8 +26,7 @@ export default function Conversation({ conversation }) {
                     src={conversation.profilePicture}
                     alt="avatar"
                 />
-                <div className={styles["online-status"]}></div>
-                {/* //! Hide online status when needed*/}
+                {isOnline && <div className={styles["online-status"]}></div>}
             </div>
             <div className={styles["conversation-item-content"]}>
                 {`${conversation.fullname} - ${conversation.username}`}
