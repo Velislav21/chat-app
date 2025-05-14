@@ -5,7 +5,6 @@ import getError from "../utils/getError.js";
 const authController = Router();
 
 authController.get('/users', async (req, res) => {
-    console.log('called')
     const loggedUserId = req.user._id;
 
     try {
