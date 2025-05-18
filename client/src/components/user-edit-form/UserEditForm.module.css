@@ -1,0 +1,80 @@
+img {
+    border-radius: 50%;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.form-group label {
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.form-input,
+.form-textarea {
+    padding: 0.4em 0.8em;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #3a3a3a;
+    color: #f0f0f0;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+    padding-top: 1em;
+    border-top: 1px solid #444;
+}
+.button {
+    padding: 0.7em 1.5em;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+.cancel-edit {
+    background-color: #7f8c8d;
+    color: white;
+
+    &:hover {
+        background-color: #606c6d;
+    }
+}
+
+.save-button {
+    background-color: #2ecc71;
+    color: white;
+    &:hover {
+        background-color: #27ae60;
+    }
+}
