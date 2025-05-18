@@ -1,15 +1,10 @@
 .logout-btn {
-    display: flex;
-    align-items: center;
-    margin-top: auto;
-    align-self: flex-start;
     background: none;
     color: #fff;
     padding: 0.5em 1em;
     border-radius: 1em;
     border: none;
     cursor: pointer;
-    font-size: 1em;
     font-weight: 600;
     transition: background 0.3s ease;
     transform: rotate(180deg);
