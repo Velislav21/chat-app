@@ -1,0 +1,18 @@
+footer {
+    margin-top: auto;
+    border-top: 1px solid #494949;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.26em 1em;
+}
+
+footer p:first-of-type {
+    max-width: 10ch;
+    color: #b0b0b0;
+
+    strong {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

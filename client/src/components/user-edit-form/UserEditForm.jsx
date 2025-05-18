@@ -1,7 +1,7 @@
 import styles from "./UserEditForm.module.css"
 
 
-export default function UserEditForm({ fullname, username, profilePicture }) {
+export default function UserEditForm({ fullname, username, profilePicture, cancelEdit }) {
     return (
         <>
             <div className={styles["img-container"]}>
@@ -37,7 +37,7 @@ export default function UserEditForm({ fullname, username, profilePicture }) {
                     <button
                         type="button"
                         className={`${styles["button"]} ${styles["cancel-edit"]}`}
-                        onClick={() => { }}
+                        onClick={cancelEdit}
                     >
                         Cancel
                     </button>
