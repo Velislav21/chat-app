@@ -1,0 +1,109 @@
+.dialog {
+    margin: 2em auto;
+    padding: 1.5em;
+    border: 1px solid #555;
+    border-radius: 0.3rem;
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+}
+
+.dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #4a90e2;
+}
+
+.profile-header h2 {
+    margin: 5px 0;
+    font-size: 1.8em;
+    color: #e0e0e0;
+}
+
+.username {
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.profile-details {
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+
+.profile-details p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.profile-details strong {
+    color: #bbb;
+    margin-right: 5px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #444;
+}
+
+.button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+
+    &:hover {
+        background-color: #c0392b;
+    }
+}
+
+.edit-button {
+    background-color: #3498db;
+    color: white;
+
+    &:hover {
+        background-color: #2980b9;
+    }
+}
+
+.close-button {
+    background-color: #7f8c8d;
+    color: white;
+
+    &:hover {
+        background-color: #606c6d;
+    }
+}
