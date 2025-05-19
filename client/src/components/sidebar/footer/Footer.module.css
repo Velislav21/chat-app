@@ -8,8 +8,9 @@ footer {
 }
 
 footer p:first-of-type {
-    max-width: 10ch;
     color: #b0b0b0;
+    max-width: 20ch;
+    text-wrap: wrap;
 
     strong {
         text-decoration: underline;

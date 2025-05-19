@@ -7,7 +7,6 @@ import UserEditForm from '../../user-edit-form/UserEditForm';
 import useAuthContext from "../../../hooks/useAuthContext";
 
 export default function UserProfileModal({ ref }) {
-
     const { user } = useAuthContext();
 
     const [isEditing, setIsEditing] = useState(false);
@@ -22,9 +21,10 @@ export default function UserProfileModal({ ref }) {
         ref={ref}
         className={styles["dialog"]}
     >
-        {isEditing ? <UserEditForm
-            {...user}
-            cancelEdit={toggleEditForm}
+        {isEditing ?
+            <UserEditForm
+                {...user}
+                cancelEdit={toggleEditForm}
             />
             :
             <>
@@ -44,18 +44,6 @@ export default function UserProfileModal({ ref }) {
                 </div>
 
                 <div className={styles["actions"]}>
-                    <button
-                        className={`${styles["button"]} ${styles["delete-button"]}`}
-                        onClick={() => console.log("Delete action triggered")}
-                    >
-                        Delete Profile
-                    </button>
-                    <button
-                        className={`${styles["button"]} ${styles["edit-button"]}`}
-                        onClick={toggleEditForm}
-                    >
-                        Edit Profile
-                    </button>
                     <form method="dialog">
                         <button
                             className={`${styles["button"]} ${styles["close-button"]}`}
@@ -63,6 +51,18 @@ export default function UserProfileModal({ ref }) {
                             Close
                         </button>
                     </form>
+                    <button
+                        className={`${styles["button"]} ${styles["edit-button"]}`}
+                        onClick={toggleEditForm}
+                    >
+                        Edit Profile
+                    </button>
+                    <button
+                        className={`${styles["button"]} ${styles["delete-button"]}`}
+                        onClick={() => console.log("Delete action triggered")}
+                    >
+                        Delete Profile
+                    </button>
                 </div>
             </>}
     </dialog>, modalRoot)

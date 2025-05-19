@@ -69,6 +69,11 @@ img {
     &:hover {
         background-color: #606c6d;
     }
+
+    &:disabled {
+        background-color: #3a3a3a;
+        cursor: not-allowed;
+    }
 }
 
 .save-button {
@@ -76,5 +81,10 @@ img {
     color: white;
     &:hover {
         background-color: #27ae60;
+    }
+
+    &:disabled {
+        background-color: #17442a;
+        cursor: not-allowed;
     }
 }

@@ -1,7 +1,14 @@
+import useEditProfile from "../../hooks/useEditProfile";
+import useForm from "../../hooks/useForm"
+import userEditSchema from "../../schemas/userEditSchema";
 import styles from "./UserEditForm.module.css"
 
-
 export default function UserEditForm({ fullname, username, profilePicture, cancelEdit }) {
+
+    const { mutate: editProfile, isPending } = useEditProfile();
+
+    const { values, handleInputChange, handleSubmit } = useForm({ fullname, username }, editProfile, userEditSchema);
+
     return (
         <>
             <div className={styles["img-container"]}>
@@ -12,7 +19,7 @@ export default function UserEditForm({ fullname, username, profilePicture, cance
                 />
             </div>
             <form
-                onSubmit={() => { }}
+                onSubmit={handleSubmit}
                 className={styles["edit-form"]}
             >
                 <div className={styles["form-group"]}>
@@ -22,6 +29,8 @@ export default function UserEditForm({ fullname, username, profilePicture, cance
                         id="fullname"
                         name="fullname"
                         className={styles["form-input"]}
+                        value={values.fullname}
+                        onChange={handleInputChange}
                     />
                 </div>
                 <div className={styles["form-group"]}>
@@ -31,6 +40,9 @@ export default function UserEditForm({ fullname, username, profilePicture, cance
                         id="username"
                         name="username"
                         className={styles["form-input"]}
+                        value={values.username}
+                        onChange={handleInputChange}
+
                     />
                 </div>
                 <div className={styles["actions"]}>
@@ -38,12 +50,14 @@ export default function UserEditForm({ fullname, username, profilePicture, cance
                         type="button"
                         className={`${styles["button"]} ${styles["cancel-edit"]}`}
                         onClick={cancelEdit}
+                        disabled={isPending}
                     >
                         Cancel
                     </button>
                     <button
                         type="submit"
                         className={`${styles["button"]} ${styles["save-button"]}`}
+                        disabled={isPending}
                     >
                         Save Changes
                     </button>

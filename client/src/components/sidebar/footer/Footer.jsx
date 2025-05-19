@@ -18,17 +18,22 @@ export default function Footer() {
 
     return (
         <>
-            <UserProfileModal ref={dialogRef}/>
+            <UserProfileModal ref={dialogRef} />
             <footer>
-                <p
-                    className={styles["user-info"]}
-                >
-                    Logged in as: <strong
-                        onClick={() => openUserProfileModal()}
+                <section>
+                    <p
+                        className={styles["user-info"]}
                     >
-                        {user.fullname}
-                    </strong>
-                </p>
+                        Logged in as:
+                    </p>
+                    <p>
+                        <strong
+                            onClick={() => openUserProfileModal()}
+                        >
+                            {user.fullname}
+                        </strong>
+                    </p>
+                </section>
                 <LogoutBtn />
             </footer>
         </>
