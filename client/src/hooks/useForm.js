@@ -18,7 +18,6 @@ export default function useForm(initialFormState, submitHandler, validationSchem
 
     async function handleSubmit(e) {
         e.preventDefault();
-
         const valid = await validationFn(values)
         if (valid) {
             submitHandler(values)
