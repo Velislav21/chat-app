@@ -32,17 +32,28 @@ const authService = {
     },
     async login(username, password) {
         const user = await User.findOne({ username });
-        console.log(username)
         if (!user) {
             throw new Error("User do not exists!")
         }
 
         const isPasswordCorrect = await bcrypt.compare(password, user.password);
-        
+
         if (!isPasswordCorrect) {
             throw new Error("Invalid password!")
         };
         return generateJWT(user);
+    },
+    async editProfile(userId, username, fullname) {
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { username, fullname },
+            {
+                new: true,
+                runValidators: true,
+
+            }).select("-password");
+
+        return generateJWT(updatedUser);
     },
     async getUsers(loggedUserId) {
         const users = await User.find({ _id: { $ne: loggedUserId } }).select("-password"); // excluding the logged in user and their passwords
