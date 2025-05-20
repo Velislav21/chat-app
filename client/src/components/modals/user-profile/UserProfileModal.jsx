@@ -9,15 +9,14 @@ import useListenForDeletedUser from '../../../hooks/useListenForDeletedUser';
 import useDeleteProfile from '../../../hooks/useDeleteProfile';
 
 export default function UserProfileModal({ ref }) {
+    const modalRoot = document.getElementById("user-profile-modal")
+    
     const { user } = useAuthContext();
 
     const [isEditing, setIsEditing] = useState(false);
 
     const { isPending, mutate: deleteProfile } = useDeleteProfile(ref);
-
     useListenForDeletedUser();
-
-    const modalRoot = document.getElementById("user-profile-modal")
 
     function toggleEditForm() {
         setIsEditing((previousState) => !previousState);

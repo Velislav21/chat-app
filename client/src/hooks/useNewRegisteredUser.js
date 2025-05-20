@@ -18,8 +18,11 @@ export default function useNewRegisteredUser() {
 
             queryClient.setQueryData(['conversations', user._id], (oldUsers) => {
                 if (!oldUsers) return [newUser];
-                
-                if (!oldUsers.some(currUser => currUser._id === user._id)) {
+
+                if (!oldUsers.some(currUser => currUser._id === newUser._id)) {
+                    // couldnt figure out why, when a new user was registered,
+                    //  the CHROME browser was receiving the new user 2-3 times.
+                    // There was no such issue in: brave / mozilla / IE / opera. 
                     return [...oldUsers, newUser];
                 }
             });

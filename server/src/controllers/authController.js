@@ -64,7 +64,7 @@ authController.delete('/delete', async (req, res) => {
 
     try {
         await authService.deleteProfile(userId);
-        res.status(200).json({message: "deleted without errors (hopefully)"})
+        res.status(200).json({ message: "deleted without errors (hopefully)" })
     } catch (err) {
         const error = getError(err);
         res.status(400).json({ message: error })

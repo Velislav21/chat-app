@@ -12,7 +12,7 @@ export default function useListenForDeletedUser() {
 
     useEffect(() => {
 
-        if (!socket || !user) return;
+        if (!socket || !user || !queryClient) return;
 
         socket.on("deletedUser", (deletedUserId) => {
 
