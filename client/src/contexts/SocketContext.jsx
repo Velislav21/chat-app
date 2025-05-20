@@ -19,7 +19,7 @@ export function SocketContextProvider({ children }) {
                     userId: user._id
                 }
             }
-            const socket = io('http://localhost:8080', options);
+            const socket = io(import.meta.env.VITE_APP_SERVER_URL, options);
 
             setSocket(socket);
 
