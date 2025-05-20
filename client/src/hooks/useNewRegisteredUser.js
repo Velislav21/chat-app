@@ -12,14 +12,20 @@ export default function useNewRegisteredUser() {
 
     useEffect(() => {
 
-        if (!socket || !user) return;
+        if (!socket || !user || !queryClient) return;
 
         socket.on("newUser", (newUser) => {
 
             queryClient.setQueryData(['conversations', user._id], (oldUsers) => {
                 if (!oldUsers) return [newUser];
-                return [...oldUsers, newUser];
+                
+                if (!oldUsers.some(currUser => currUser._id === user._id)) {
+                    return [...oldUsers, newUser];
+                }
             });
         });
-    }, [socket, user]);
+        return () => {
+            socket.off("newUser")
+        }
+    }, [socket, user, queryClient]);
 };
