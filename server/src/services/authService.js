@@ -64,14 +64,17 @@ const authService = {
         const { ObjectId } = mongoose.Types;
         const userIdAsObjectId = ObjectId.createFromHexString(userId) // converting string id to objectId
 
-        await Promise.all(
+        const success = await Promise.all(
             [
                 User.findByIdAndDelete(userId),
-                Message.deleteMany({ senderId: userIdAsObjectId }),
+                Message.deleteMany({ senderId: userIdAsObjectId, receiverId: userIdAsObjectId }),
                 Conversation.deleteMany({ members: userIdAsObjectId })
             ] // find all messages and conversations
             //   related to the profile that is being deleted, then delete them as well from the db
         )
+        if (success) {
+            io.emit("deletedUser", userId)
+        }
     },
     async getUsers(loggedUserId) {
         const users = await User.find({ _id: { $ne: loggedUserId } }).select("-password"); // excluding the logged in user and their passwords
