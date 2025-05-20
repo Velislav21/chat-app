@@ -1,5 +1,9 @@
 import bcrypt from "bcryptjs";
 
+import mongoose from "mongoose";
+
+import Conversation from "../models/Conversation.js";
+import Message from "../models/Message.js";
 import User from "../models/User.js"
 import hashPassword from "../utils/hashPassword.js";
 import generateJWT from "../utils/generateJWT.js";
@@ -54,6 +58,20 @@ const authService = {
             }).select("-password");
 
         return generateJWT(updatedUser);
+    },
+    async deleteProfile(userId) {
+
+        const { ObjectId } = mongoose.Types;
+        const userIdAsObjectId = ObjectId.createFromHexString(userId) // converting string id to objectId
+
+        await Promise.all(
+            [
+                User.findByIdAndDelete(userId),
+                Message.deleteMany({ senderId: userIdAsObjectId }),
+                Conversation.deleteMany({ members: userIdAsObjectId })
+            ] // find all messages and conversations
+            //   related to the profile that is being deleted, then delete them as well from the db
+        )
     },
     async getUsers(loggedUserId) {
         const users = await User.find({ _id: { $ne: loggedUserId } }).select("-password"); // excluding the logged in user and their passwords

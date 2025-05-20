@@ -18,7 +18,6 @@ const messageService = {
             receiverId,
             messageContent
         })
-        // !TODO socket.io ...
         if (newMessage) {
             conversation.messages.push(newMessage._id);
             await conversation.save();

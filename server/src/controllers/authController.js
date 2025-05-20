@@ -48,7 +48,7 @@ authController.put('/edit', async (req, res) => {
 
     const { username, fullname } = req.body;
     const userId = req.user._id;
- 
+
     try {
         const updatedUser = await authService.editProfile(userId, username, fullname);
         res.status(200).json(updatedUser)
@@ -57,6 +57,19 @@ authController.put('/edit', async (req, res) => {
         const error = getError(err);
         res.status(400).json({ message: error })
     }
+})
+
+authController.delete('/delete', async (req, res) => {
+    const userId = req.user._id;
+
+    try {
+        await authService.deleteProfile(userId);
+        res.status(200).json({message: "deleted without errors (hopefully)"})
+    } catch (err) {
+        const error = getError(err);
+        res.status(400).json({ message: error })
+    }
+
 })
 
 authController.post('/logout', (req, res) => {
