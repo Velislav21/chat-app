@@ -12,8 +12,8 @@ footer p:first-of-type {
     max-width: 20ch;
     text-wrap: wrap;
 
-    strong {
-        text-decoration: underline;
-        cursor: pointer;
-    }
+}
+p + p > strong {
+    text-decoration: underline;
+    cursor: pointer;
 }

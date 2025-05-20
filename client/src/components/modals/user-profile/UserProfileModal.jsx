@@ -5,11 +5,17 @@ import styles from "./UserProfileModal.module.css";
 import UserEditForm from '../../user-edit-form/UserEditForm';
 
 import useAuthContext from "../../../hooks/useAuthContext";
+import useListenForDeletedUser from '../../../hooks/useListenForDeletedUser';
+import useDeleteProfile from '../../../hooks/useDeleteProfile';
 
 export default function UserProfileModal({ ref }) {
     const { user } = useAuthContext();
 
     const [isEditing, setIsEditing] = useState(false);
+
+    const { isPending, mutate: deleteProfile } = useDeleteProfile(ref);
+
+    useListenForDeletedUser();
 
     const modalRoot = document.getElementById("user-profile-modal")
 
@@ -47,19 +53,24 @@ export default function UserProfileModal({ ref }) {
                     <form method="dialog">
                         <button
                             className={`${styles["button"]} ${styles["close-button"]}`}
+                            disabled={isPending}
                         >
                             Close
                         </button>
+
                     </form>
                     <button
                         className={`${styles["button"]} ${styles["edit-button"]}`}
                         onClick={toggleEditForm}
+                        disabled={isPending}
+
                     >
                         Edit Profile
                     </button>
                     <button
                         className={`${styles["button"]} ${styles["delete-button"]}`}
-                        onClick={() => console.log("Delete action triggered")}
+                        onClick={deleteProfile}
+                        disabled={isPending}
                     >
                         Delete Profile
                     </button>

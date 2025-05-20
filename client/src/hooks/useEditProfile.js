@@ -18,16 +18,17 @@ export default function useEditProfile() {
         return response.data;
     }
 
-    const { mutate, isPending } = useMutation({
+    const { mutate, isPending, error } = useMutation({
         mutationFn: editProfile,
         onSuccess: (updatedUserData) => {
             dispatch({ type: "LOGIN", payload: updatedUserData });
         },
-        onError: (error) => toast.error(error.response.data.message)
+        // onError: (error) => toast.error(error.response.data.message)
     })
 
     return {
         mutate,
         isPending,
+        error
     }
 }

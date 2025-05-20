@@ -5,9 +5,11 @@ import styles from "./UserEditForm.module.css"
 
 export default function UserEditForm({ fullname, username, profilePicture, cancelEdit }) {
 
-    const { mutate: editProfile, isPending } = useEditProfile();
+    const { mutate: editProfile, isPending, error } = useEditProfile();
 
     const { values, handleInputChange, handleSubmit } = useForm({ fullname, username }, editProfile, userEditSchema);
+
+    const emptyField = values.username === "" || values.fullname === "";
 
     return (
         <>
@@ -44,6 +46,7 @@ export default function UserEditForm({ fullname, username, profilePicture, cance
                         onChange={handleInputChange}
 
                     />
+                    {error && <p className={styles["error-msg"]}>{error.response.data.message}</p>}
                 </div>
                 <div className={styles["actions"]}>
                     <button
@@ -57,7 +60,7 @@ export default function UserEditForm({ fullname, username, profilePicture, cance
                     <button
                         type="submit"
                         className={`${styles["button"]} ${styles["save-button"]}`}
-                        disabled={isPending}
+                        disabled={isPending || emptyField}
                     >
                         Save Changes
                     </button>
