@@ -4,6 +4,7 @@ import SkeletonLoader from '../../skeleton-loader/SkeletonLoader'
 
 import useConversationContext from '../../../hooks/useConversationContext'
 import useNewRegisteredUser from '../../../hooks/useNewRegisteredUser'
+import useListenForEditedUser from '../../../hooks/useListenForEditedUser'
 
 export default function Conversations() {
 
@@ -13,6 +14,8 @@ export default function Conversations() {
     } = useConversationContext();
 
     useNewRegisteredUser();
+
+    useListenForEditedUser();
 
     return (
         <>

@@ -15,7 +15,8 @@ export default function UserProfileModal({ ref }) {
 
     const [isEditing, setIsEditing] = useState(false);
 
-    const { isPending, mutate: deleteProfile } = useDeleteProfile(ref);
+    const { isPending, mutate: deleteProfile } = useDeleteProfile();
+    
     useListenForDeletedUser();
 
     function toggleEditForm() {

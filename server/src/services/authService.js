@@ -57,6 +57,7 @@ const authService = {
 
             }).select("-password");
 
+        io.emit("updatedUser", updatedUser);
         return generateJWT(updatedUser);
     },
     async deleteProfile(userId) {
