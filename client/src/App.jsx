@@ -11,6 +11,8 @@ import { SocketContextProvider } from './contexts/SocketContext'
 
 import { Toaster } from 'react-hot-toast'
 
+console.log('test')
+
 export default function App() {
     return (
         <AuthContextProvider>
