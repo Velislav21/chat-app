@@ -47,8 +47,6 @@ This is a full-stack, real-time chat application allows instant communication be
 ## Important Notes:
 
 -   You need to create an account and log in to access the chat functionalities.
--   (Add any other specific notes, e.g., "The application is optimized for mobile viewports" or "Ensure your MongoDB instance is accessible.")
-
 ---
 
 ## Project Structure:
