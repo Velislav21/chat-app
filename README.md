@@ -1,6 +1,6 @@
 # Real-time Chat Application
 
-This is a full-stack, real-time chat application designed to facilitate instant communication between users. It features user authentication, profile management, live messaging, and real-time updates.
+This is a full-stack, real-time chat application allows instant communication between users. It features user authentication, profile management, live messaging, and real-time updates.
 
 ---
 
@@ -39,7 +39,7 @@ This is a full-stack, real-time chat application designed to facilitate instant 
 -   Password hashing using bcrypt.
 -   User profile creation, viewing, editing, and deletion.
 -   Real-time messaging between authenticated users.
--   Live updates for user profile changes and online status (if implemented).
+-   Live updates for user profile changes and online status.
 -   Search functionality to find other users.
 
 ---
