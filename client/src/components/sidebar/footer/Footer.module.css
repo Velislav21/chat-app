@@ -20,7 +20,7 @@ footer {
         scale: 1.1;
     }
 }
-@media (width <= 400px) {
+@media (width <= 430px) {
     footer {
         margin-bottom: 0.3em;
     }

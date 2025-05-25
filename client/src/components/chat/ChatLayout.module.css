@@ -12,7 +12,7 @@
     color: #fff;
     box-shadow: 0.2em 0.5em 2em rgba(0,0,0, 0.5);
 }
-@media (width <= 400px) {
+@media (width <= 430px) {
     .chat-container {
         max-width: 26em;
     }

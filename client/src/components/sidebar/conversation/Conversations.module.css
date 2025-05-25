@@ -3,7 +3,7 @@
     max-height: 30em;
     overflow: auto;
 }
-@media (width <= 400px) {
+@media (width <= 430px) {
     .conversation-container {
         border-top-left-radius: 0.5em;
     }
