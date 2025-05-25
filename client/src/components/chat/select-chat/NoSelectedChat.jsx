@@ -1,7 +1,8 @@
 import useAuthContext from '../../../hooks/useAuthContext'
-import styles from './NoSelectedChat.module.css'
+
 import { MessagesSquare } from 'lucide-react'
 
+import styles from './NoSelectedChat.module.css'
 
 export default function NoSelectedChat() {
 

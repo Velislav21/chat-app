@@ -17,7 +17,6 @@ export default function useListenForMessage(messages, currentConversation) {
                 if (!oldMessages) return [newMessage];
                 return [...oldMessages, newMessage];
             });
-            console.log('works')
         });
 
         return () => socket.off("newMessage")

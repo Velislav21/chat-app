@@ -58,7 +58,7 @@
 
 .profile-details {
     margin-bottom: 2em;
-    font-size: 0.95em;
+    font-size: 1.1em;
 }
 
 .profile-details p {
@@ -80,7 +80,7 @@
 }
 
 .button {
-    padding: 0.7em 1.5em;
+    padding: 0.7em 1em;
     border: none;
     border-radius: 5px;
     font-size: 0.9em;

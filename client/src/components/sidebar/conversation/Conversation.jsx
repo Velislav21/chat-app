@@ -28,9 +28,9 @@ export default function Conversation({ conversation }) {
                 />
                 {isOnline && <div className={styles["online-status"]}></div>}
             </div>
-            <div className={styles["conversation-item-content"]}>
+            <p className={styles["conversation-item-content"]}>
                 {`${conversation.fullname}`}
-            </div>
+            </p>
         </div>
     )
 }

@@ -20,20 +20,12 @@ export default function Footer() {
         <>
             <UserProfileModal ref={dialogRef} />
             <footer>
-                <section>
-                    <p
-                        className={styles["user-info"]}
-                    >
-                        Logged in as:
-                    </p>
-                    <p>
-                        <strong
-                            onClick={() => openUserProfileModal()}
-                        >
-                            {user.fullname}
-                        </strong>
-                    </p>
-                </section>
+                <img
+                    src={user.profilePicture}
+                    alt=""
+                    className={styles["avatar"]}
+                    onClick={() => openUserProfileModal()}
+                />
                 <LogoutBtn />
             </footer>
         </>

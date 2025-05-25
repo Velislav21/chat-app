@@ -2,6 +2,9 @@
     margin-bottom: 0.5em;
     max-height: 30em;
     overflow: auto;
-
 }
-
+@media (width <= 400px) {
+    .conversation-container {
+        border-top-left-radius: 0.5em;
+    }
+}

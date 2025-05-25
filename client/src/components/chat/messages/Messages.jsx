@@ -12,9 +12,12 @@ import useListenForMessage from '../../../hooks/useListenForMessage';
 export default function Messages({ currentConversation }) {
 
     const { user } = useAuthContext();
+
     const { data: messages, isFetching } = useGetMessages();
-    useListenForMessage(messages, currentConversation);
+
     const lastMessageRef = useRef(null);
+
+    useListenForMessage(messages, currentConversation);
 
     useEffect(() => {
         setTimeout(() => {
@@ -39,8 +42,7 @@ export default function Messages({ currentConversation }) {
                 <div className={styles["chat-container"]}>
                     <h1>
                         <span>To:</span> {currentConversation.fullname}
-                        <span> From:</span> {user.fullname}</h1>
-                    {/* !TODO  remove the from span*/}
+                    </h1>
                     <div className={styles["messages-container"]}>
                         {messages.map((message, index) => (
                             <div

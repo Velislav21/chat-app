@@ -7,13 +7,21 @@ footer {
     padding: 0.26em 1em;
 }
 
-footer p:first-of-type {
-    color: #b0b0b0;
-    max-width: 20ch;
-    text-wrap: wrap;
-
-}
-p + p > strong {
-    text-decoration: underline;
+.avatar {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #222;
+    align-self: flex-end;
     cursor: pointer;
+    transition: scale 0.2s ease;
+    &:hover {
+        scale: 1.1;
+    }
+}
+@media (width <= 400px) {
+    footer {
+        margin-bottom: 0.3em;
+    }
 }

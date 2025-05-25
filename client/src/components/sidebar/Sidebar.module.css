@@ -3,8 +3,13 @@
     flex-direction: column;
     padding: 0.5em 0;
     justify-content: space-between;
-    min-width: 20em;
     max-width: 25em;
     border-right: 1px solid #494949;
-
 }
+@media (width <= 400px) {
+
+    .sidebar-container {
+        padding: 0;
+        min-width: min-content;
+    }
+} 
