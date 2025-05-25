@@ -25,6 +25,7 @@ export default function useGetMessages() {
 
     return useQuery({
         queryKey: ['messages', currentConversation._id],
-        queryFn: () => getMessages(currentConversation._id, user.accessToken)
+        queryFn: () => getMessages(currentConversation._id, user.accessToken),
+        staleTime: 1000 * 60 * 3 // 3 min
     });
 }
