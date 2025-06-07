@@ -30,6 +30,7 @@
 .form-group {
     display: flex;
     flex-direction: column;
+    position: relative;
     gap: 0.5em;
 }
 .form-group-gender {
@@ -43,7 +44,7 @@
 }
 
 .form-input {
-    padding: 0.75em;
+    padding: 1em 1em 1em 2.7em;
     border: 1px solid #ddd;
     border-radius: 0.3rem;
     font-size: 1em;
@@ -87,4 +88,80 @@
 
 .link a:hover {
     text-decoration: underline;
+}
+.gender-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.gender-options {
+    display: flex;
+    gap: 1rem; 
+}
+
+.gender-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.gender-label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.gender-label:hover {
+    border-color: #60a5fa;
+}
+.gender-input:checked + .gender-label {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.gender-input:not(:checked) + .gender-label:hover {
+    border-color: #60a5fa;
+}
+.gender-label {
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+    color: #374151;
+    transition: all 0.2s ease-in-out;
+}
+
+.gender-label:not(:has(.gender-input:checked)):hover {
+    border-color: #60a5fa;
+}
+
+.gender-label:has(.gender-input:checked) {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.input-icon {
+    position: absolute;
+    top: 1.7em;
+    left: 0.6em;
+    bottom: 0;
+    margin: auto 0;
+    color: #666;
 }

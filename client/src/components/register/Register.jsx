@@ -5,6 +5,14 @@ import registerSchema from '../../schemas/registerSchema'
 import useRegister from '../../hooks/useRegister'
 import useForm from '../../hooks/useForm'
 import Spinner from '../spinner/Spinner'
+
+import {
+    UserIcon,
+    KeyIcon,
+    CheckIcon,
+    MailIcon,
+} from 'lucide-react'
+
 const initialFormState = {
     fullname: '',
     username: '',
@@ -25,78 +33,86 @@ export default function Register() {
     return (
         <div className={styles["container"]}>
             <div className={styles["form-box"]}>
-                <h1 className={styles["title"]}>Register</h1>
+                <h1 className={styles["title"]}>Create your account</h1>
                 <form
                     onSubmit={handleSubmit}
                     className={styles["form"]}>
                     <div className={styles["form-group"]}>
-                        <label htmlFor="fullname">Fullname</label>
+                        <label htmlFor="fullname">Full name</label>
+                        <UserIcon size={16} className={styles['input-icon']} />
                         <input
                             type="text"
                             name="fullname"
                             value={values.fullname}
                             onChange={handleInputChange}
                             className={styles["form-input"]}
-                            placeholder="Enter your fullname"
+                            placeholder="Jane Doe"
                             required
                         />
                     </div>
                     <div className={styles["form-group"]}>
                         <label htmlFor="username">Username</label>
+                        <MailIcon size={16} className={styles['input-icon']} />
                         <input
                             type="text"
                             name="username"
                             value={values.username}
                             onChange={handleInputChange}
                             className={styles["form-input"]}
-                            placeholder="Enter your username"
+                            placeholder="janedoe"
                             required
                         />
                     </div>
                     <div className={styles["form-group"]}>
                         <label htmlFor="password">Password</label>
+                        <KeyIcon size={16} className={styles['input-icon']} />
                         <input
                             type="password"
                             name="password"
                             value={values.password}
                             onChange={handleInputChange}
                             className={styles["form-input"]}
-                            placeholder="Enter your password"
+                            placeholder="••••••••"
                         />
                     </div>
                     <div className={styles["form-group"]}>
                         <label htmlFor="confirmPassword">Confirm password</label>
+                        <CheckIcon size={16} className={styles['input-icon']} />
                         <input
                             type="password"
                             name="confirmPassword"
                             value={values.confirmPassword}
                             onChange={handleInputChange}
                             className={styles["form-input"]}
-                            placeholder="Confirm password"
+                            placeholder="••••••••"
                             required
                         />
                     </div>
-                    <div className={styles["form-group-gender"]}>
-                        <label htmlFor="gender">Male</label>
-                        <input
-                            type="radio"
-                            name="gender"
-                            value="male"
-                            checked={values.gender === 'male'}
-                            onChange={handleInputChange}
-                            className={styles["form-input"]}
-                            placeholder="Confirm password"
-                        />
-                        <label htmlFor="gender">Female</label>
-                        <input
-                            type="radio"
-                            name="gender"
-                            value="female"
-                            checked={values.gender === 'female'}
-                            onChange={handleInputChange}
-                            className={styles["form-input"]}
-                            placeholder="Confirm password"
-                        />
+                    <div>
+                        <div className={styles["gender-options"]}>
+                            <label className={styles["gender-label"]}>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="male"
+                                    checked={values.gender === "male"}
+                                    onChange={handleInputChange}
+                                    className={styles["gender-input"]} // We'll style this to be hidden
+                                />
+                                <span>Male</span>
+                            </label>
+                            <label className={styles["gender-label"]}>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="female"
+                                    checked={values.gender === "female"}
+                                    onChange={handleInputChange}
+                                    className={styles["gender-input"]}
+                                />
+                                <span>Female</span>
+                            </label>
+                        </div>
                     </div>
                     <button
                         type="submit"
@@ -106,7 +122,7 @@ export default function Register() {
                         {isPending ? <Spinner /> : "Register"}
                     </button>
                     <p className={styles["link"]}>
-                        Already have an account? <Link to="/">Login</Link>
+                        Already have an account? <Link to="/">Sign in</Link>
                     </p>
                 </form>
             </div>

@@ -5,6 +5,11 @@ import useForm from '../../hooks/useForm'
 import loginSchema from '../../schemas/loginSchema'
 import Spinner from '../spinner/Spinner'
 
+import {
+    UserIcon,
+    KeyIcon,
+} from 'lucide-react'
+
 const initialFormState = {
     username: '',
     password: '',
@@ -27,22 +32,24 @@ function Login() {
                     className={styles["form"]}>
                     <div className={styles["form-group"]}>
                         <label htmlFor="email">Username</label>
+                        <UserIcon size={16} className={styles['input-icon']} />
                         <input
                             type="text"
                             name="username"
                             className={styles["form-input"]}
-                            placeholder="Enter your username"
+                            placeholder="johndoe"
                             value={values.username}
                             onChange={handleInputChange}
                         />
                     </div>
                     <div className={styles["form-group"]}>
                         <label htmlFor="password">Password</label>
+                        <KeyIcon size={16} className={styles['input-icon']} />
                         <input
                             type="password"
                             name="password"
                             className={styles["form-input"]}
-                            placeholder="Enter your password"
+                            placeholder="••••••••"
                             value={values.password}
                             onChange={handleInputChange}
                         />
